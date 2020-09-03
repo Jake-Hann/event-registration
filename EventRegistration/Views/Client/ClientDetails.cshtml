@@ -1,0 +1,57 @@
+﻿@model EventRegistration.Models.Client
+
+@{
+    ViewBag.Title = "Client Details";
+}
+
+<br />
+<br />
+<h2>Client Details</h2>
+<hr />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Phone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditClient", new { email = Model.Email }) |
+            @Html.ActionLink("Delete", "DeleteClient", new { email = Model.Email })
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+<div>
+    @Html.ActionLink("Back to search", "SearchClient")
+</div>

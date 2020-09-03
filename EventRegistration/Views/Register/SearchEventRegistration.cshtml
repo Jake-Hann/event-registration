@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Search Event Registration";
+}
+<center>
+    @if (ViewBag.AlertMessage != null)
+    {
+        <script>
+        window.onload = function () {
+            window.location.href = "SearchEventRegistration";
+            alert("@ViewBag.AlertMessage");
+        }
+        </script>
+    }
+</center>
+<br />
+<br />
+<h2>Search for Registered Event</h2>
+<hr />
+<br />
+<b>Please enter the client email and event name for the registered event you want to delete.</b>
+<br />
+<br />
+<br />
+<form class="form-horizontal" method="post" action="~/Register/SearchSubmit">
+    @Html.Label("Email")
+    <input type="text" name="email" class="form-control" title="Enter email address"/>
+    <br />
+    @Html.Label("Event Name")
+    <input type="text" name="eventName" class="form-control" title="Enter event name"/>
+    <br />
+    <br />
+    <input type="submit" value="Search" class="btn btn-default" />
+</form>
+<br />
+
+

@@ -1,0 +1,37 @@
+﻿@model EventRegistration.Models.Client
+
+@{
+    ViewBag.Title = "Search Clients";
+}
+
+<center>
+    @if (ViewBag.AlertMessage != null)
+    {
+        <script>
+            window.onload = function ()
+            {
+                window.location.href = "SearchClient";
+                alert("@ViewBag.AlertMessage");
+            }
+        </script>
+    }
+</center>
+<br />
+<br />
+<h2>Search Clients</h2>
+<hr />
+<br />
+<b>Please enter the email for the client who's details you wish to view, edit or delete.</b>
+<br />
+<br />
+@*@using (Html.BeginForm("SearchSubmit", "Client"))
+{
+    @Html.TextBoxFor(model => model.Email, new { Title = "Enter client email" })
+    <button type="submit">Search</button>
+}*@
+<form class="form-horizontal" method="post" action="~/Client/SearchSubmit">
+    <input type="text" name="email" class="form-control" title="Enter client email" />
+    <br />
+    <input type="submit" value="Search" class="btn btn-default" />
+</form>
+<br />

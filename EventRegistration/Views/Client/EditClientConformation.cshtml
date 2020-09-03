@@ -1,0 +1,52 @@
+﻿@model EventRegistration.Models.Client
+
+@{
+    ViewBag.Title = "Edit Client Conformation";
+}
+
+<br />
+<br />
+<h2>Edit Client</h2>
+<hr />
+<br />
+<h3>Client details have been saved!</h3>
+<br />
+@using (Html.BeginForm())
+{
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+    </dl>
+}
+<br />
+<div>
+    @Html.ActionLink("Back to Client Details", "ClientDetails", new { email = Model.Email })
+</div>

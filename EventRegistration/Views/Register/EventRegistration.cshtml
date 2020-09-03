@@ -1,0 +1,65 @@
+﻿@model EventRegistration.Models.Register
+
+@{
+    ViewBag.Title = "Event Registration";
+}
+
+<center>
+    @if (ViewBag.ConformationMessage != null)
+    {
+        <script>
+            window.onload = function ()
+            {
+                window.location.href = "EventRegistration";
+                alert("@ViewBag.ConformationMessage");
+            }
+        </script>
+    }
+</center>
+<br />
+<br />
+<h2>Register for an Event</h2>
+<hr />
+<br />
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "EventReg" }))
+{
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("EventName", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("EventName", null, "--Select an Event--", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessage("EventName", "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Email", null, "--Select an Email--", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessage("Email", "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Number of Guests", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GuestNumber, new { htmlAttributes = new { @class = "form-control", Title = "Enter number of tickets", Placeholder = "1-100" } })
+            @Html.ValidationMessage("GuestNumber", "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Payment Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PaymentAmount, new { htmlAttributes = new { @class = "form-control", Title = "Enter Payment Amount", Placeholder = "$000.00" } })
+            @Html.ValidationMessage("PaymentAmount", "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Register" class="btn btn-default" placeholder="Register"/>
+        </div>
+    </div>
+</div>
+}
+<br />
+<div>
+    @Html.ActionLink("View available events", "Index", "Event")  |  @Html.ActionLink("View all event registrations", "Index", "Register")
+</div>

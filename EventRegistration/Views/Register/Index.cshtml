@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EventRegistration.Models.Register>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<h2>All Event Registrations</h2>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GuestNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentAmount)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuestNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentAmount)
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<div>
+    @Html.ActionLink("Register for an event", "EventRegistration", "Register")
+</div>

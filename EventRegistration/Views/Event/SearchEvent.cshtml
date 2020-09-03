@@ -1,0 +1,32 @@
+﻿@model EventRegistration.Models.Event
+
+@{
+    ViewBag.Title = "Search Events";
+}
+
+<center>
+    @if (ViewBag.AlertMessage != null)
+    {
+        <script>
+            window.onload = function ()
+            {
+                window.location.href = "SearchEvent";
+                alert("@ViewBag.AlertMessage");
+            }
+        </script>
+    }
+</center>
+<br />
+<br />
+<h2>Search Events</h2>
+<hr />
+<br />
+<b>Please enter the event name or date you wish to search for.</b>
+<br />
+<br />
+<form class="form-horizontal" method="post" action="~/Event/SearchSubmit">
+    <input type="text" name="keyword" class="form-control" title="Enter search term"/>
+    <br />
+    <input type="submit" value="Search" class="btn btn-default" />
+</form>
+<br />
